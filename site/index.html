@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zone 404, ta voix écrite sur ta machine</title>
+<meta name="description" content="zone 404 écrit ta voix là où tu parles, entièrement sur ta machine, sans serveur et sans réseau.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* Hallmark · shape: Bento Grid · genre: atmospheric · theme: Lumen (deal 1/3, seed pour-zone-404-une-5650·6100f112·2026-11-08·r0) · job: try · draw: 9ae00a
+ * hero: banner · nav: edge-aligned · footer: statement · imagery: product sample (built) · signature: la dictée qui s'écrit dans le hero
+ * axes: dark/roman-serif/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S3 R4 V4 · weakest: S, la console pourrait être n'importe quel outil de dictée ; fixé par les readouts qui nomment le modèle exact et le 0 octet sorti */
+@import url("./tokens.css");
+@import url("./base.css");
+/* Hallmark · waive 38iii · le thème nomme le verbe coloré comme sa signature, une fois, dans le hero · signature du thème Lumen */
+/* Hallmark · dismissed 58 · la fenêtre du bento lit 85 mots, dont les étiquettes mono du chemin ; le budget vise environ 80 */
+/* Hallmark · finish-review: subagent · 3 findings · 3 resolved · gap: none · 44a mesuré peint au-dessus/dessous : 112/160 (1.43) à 1440, 145/192 (1.32) à 1920 */
+
+body { font-variant-numeric: tabular-nums; }
+h1, h2, h3, nav, label, th, figcaption, .btn, .chip, .slide { text-transform: lowercase; }
+h1, h2, h3 { font-weight: 400; }
+h2 { font-size: var(--text-display-s); line-height: 0.98; }
+
+/* nav */
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: 500; padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
+.skip:focus-visible { top: var(--space-md); }
+.nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.nav__brand { font: 400 1.375rem/1 var(--font-display); color: var(--color-ink); text-decoration: none; }
+.nav__links { display: flex; align-items: center; gap: var(--space-lg); }
+.nav__links a { font: 400 var(--text-sm)/1 var(--font-body); color: var(--color-muted); text-decoration: none; }
+.nav__links a:hover { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); }
+.nav__links a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* verbs, buttons */
+.verb { display: inline-block; color: var(--color-accent-2); }
+.verb::after { content: ""; display: block; height: 1px; background: currentColor; transform-origin: left; animation: draw 0.6s var(--ease-out) 0.4s both; }
+@keyframes draw { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { .verb::after { animation: none; } }
+.btn { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 48px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); font: 500 var(--text-md)/1 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: color-mix(in oklab, var(--color-accent) 88%, var(--color-accent-ink)); }
+.btn--primary:active { transform: translateY(1px); }
+.btn--primary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn--quiet { box-shadow: inset 0 0 0 1px var(--color-rule-2); color: var(--color-ink); }
+.btn--quiet:hover { background: var(--color-paper-2); }
+.btn--quiet:active { transform: translateY(1px); }
+.btn--quiet:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn--quiet:disabled, .btn--quiet[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+/* hero, banner posture */
+.hero { padding-block: var(--space-3xl) var(--space-lg); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: center; align-content: center; min-height: 54dvh; }
+.hero__copy { display: grid; gap: var(--space-lg); justify-items: start; }
+.hero__copy h1 { font-size: var(--text-display); }
+.hero__copy .lead { max-width: 30ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* la console, le produit construit */
+.console { position: relative; border-radius: var(--radius-card); background: var(--color-paper-2); box-shadow: var(--shadow-card); overflow: hidden; }
+.console__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.console__title { font: 500 var(--text-sm)/1 var(--font-body); color: var(--color-ink-2); }
+.chip { display: inline-flex; align-items: center; gap: var(--space-2xs); min-height: 26px; padding: 0 var(--space-sm); border-radius: var(--radius-pill); background: var(--color-paper-3); font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-ink-2); }
+.chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-live); }
+.console__text { padding: var(--space-xl) var(--space-lg); min-height: 10lh; font: 400 1.375rem/1.65 var(--font-body); color: var(--color-ink); background: var(--color-paper-2); }
+.console__text p + p { margin-top: var(--space-md); }
+.console__text::after { content: ""; display: inline-block; width: 2px; height: 1.1em; vertical-align: text-bottom; margin-left: var(--space-3xs); background: var(--color-accent); }
+.console__foot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--color-rule); }
+.console__foot > div { padding: var(--space-sm) var(--space-md); }
+.console__foot > div + div { border-left: 1px solid var(--color-rule); }
+.readout { display: block; font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-muted); }
+.readout b { font-weight: 400; color: var(--color-ink-2); }
+
+@media (max-width: 60rem) { .hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); } .console__foot { grid-template-columns: minmax(0, 1fr); } .console__foot > div + div { border-left: 0; border-top: 1px solid var(--color-rule); } .console__text { min-height: 5lh; } .console__text { font-size: 1.125rem; } }
+
+/* sections */
+.sec { padding-top: var(--section-gap); }
+.sec--tight { padding-top: var(--section-gap-s); }
+.sec--loose { padding-top: var(--section-gap-l); }
+.headblock { margin-bottom: var(--space-2xl); }
+.headblock .lead { max-width: 44ch; }
+
+/* switcher */
+.seg { display: flex; gap: var(--space-xs); border: 0; padding: 0; margin: 0 0 var(--space-lg); }
+.seg button { min-height: 44px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); background: transparent; border: 1px solid var(--color-rule-2); color: var(--color-ink); font: 400 var(--text-sm)/1 var(--font-body); cursor: pointer; white-space: nowrap; }
+.seg button:hover { background: var(--color-paper-2); }
+.seg button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.seg button:disabled, .seg button[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+.seg button[aria-selected="true"] { background: var(--color-paper-3); border-color: var(--color-rule-2); color: var(--color-ink); }
+.surface { border: 1px solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper-2); padding: var(--space-xl) var(--space-lg); min-height: 340px; }
+.surface__caption { display: block; font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-muted); margin-bottom: var(--space-md); }
+.surface p { max-width: 56ch; }
+.surface--code { font: 400 0.875rem/1.9 var(--font-outlier); color: var(--color-ink-2); }
+.surface--code ol { margin: 0 0 0 3ch; padding: 0; list-style: none; }
+.surface--code li { counter-increment: line; }
+.surface--code li::before { content: counter(line); display: inline-block; width: 3ch; margin-left: -3ch; margin-right: var(--space-sm); color: var(--color-muted); }
+.surface--code .cmt { color: var(--color-muted); }
+.surface--mail dl, .surface--note ul { margin: 0; }
+.surface--mail dt { font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-muted); }
+.surface--mail dd { margin: 0 0 var(--space-sm); font-size: var(--text-md); color: var(--color-ink); }
+.surface--note li { margin-left: var(--space-lg); }
+.surface--note li::marker { color: var(--color-muted); }
+.surface--note li + li { margin-top: var(--space-xs); }
+
+/* bento */
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); }
+.tile { border-radius: var(--radius-card); padding: var(--space-xl); background: var(--color-paper-2); }
+.tile--lead { background: var(--color-paper-3); border: 1px solid var(--color-rule); padding: var(--space-lg); }
+.tile h3 { font-size: var(--text-title); font-family: var(--font-display); font-weight: 400; text-transform: lowercase; max-width: 26ch; }
+.tile--big h3 { font-size: var(--text-display-s); line-height: 1; margin-bottom: var(--space-md); }
+.blueprint { background-image: linear-gradient(var(--rule-blueprint) 1px, transparent 1px), linear-gradient(90deg, var(--rule-blueprint) 1px, transparent 1px); background-size: 48px 48px; }
+
+/* le diagramme des deux chemins */
+.diag { display: grid; gap: var(--space-lg); }
+.diag__path { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: nowrap; }
+.diag__node { display: inline-block; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--color-rule-2); border-radius: var(--radius-pill); font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-ink-2); white-space: nowrap; }
+.diag__node--muted { color: var(--color-muted); border-color: var(--color-rule); }
+.diag__node--fast { border-color: var(--color-accent); color: var(--color-ink); }
+.diag__wire { flex: 1 1 auto; min-width: var(--space-md); height: var(--rule-hair); background: var(--color-rule); }
+.diag__wire--fast { background: var(--color-accent); }
+.diag__pathname { font: 400 0.8125rem/1.5 var(--font-body); color: var(--color-muted); margin-bottom: var(--space-2xs); }
+
+/* langues et Lecture tiles */
+.tile .readout { margin-bottom: var(--space-2xs); }
+.tile__count { font: 400 var(--text-display-s)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.langs { margin: var(--space-lg) 0 0; padding: 0; list-style: none; columns: 3; column-gap: var(--space-lg); font-size: var(--text-sm); color: var(--color-ink-2); }
+.langs li { break-inside: avoid; padding-block: var(--space-3xs); }
+
+/* table des plateformes */
+.plat { width: 100%; border-collapse: collapse; }
+.plat th { text-align: left; font: 400 var(--text-sm)/1.5 var(--font-body); color: var(--color-muted); border-bottom: 1px solid var(--color-rule-2); padding-bottom: var(--space-sm); }
+.plat td { border-bottom: 1px solid var(--color-rule); padding: var(--space-md) 0; font-size: var(--text-md); color: var(--color-ink-2); }
+.plat td:first-child { font-weight: 500; color: var(--color-ink); min-width: 0; }
+.plat .mono { font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-muted); }
+
+/* band du téléchargement */
+.band { margin-top: var(--section-gap); padding-block: var(--space-2xl); background: var(--color-paper-2); color: var(--color-ink); }
+.band__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); }
+
+/* footer */
+.footer { padding-block: var(--section-gap-l) var(--space-2xl); }
+.footer__close { max-width: 28ch; font-size: var(--text-display-s); line-height: 1.05; font-family: var(--font-display); font-weight: 400; text-transform: lowercase; }
+.footer__links { margin-top: var(--space-2xl); display: flex; flex-wrap: wrap; gap: var(--space-lg); }
+.footer__links a { font-size: var(--text-sm); color: var(--color-ink-2); }
+.footer__legal { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); max-width: 60ch; }
+
+@media (max-width: 60rem) { .bento { grid-template-columns: minmax(0, 1fr); } .langs { columns: 2; } .plat .mono { display: block; } .diag__path { gap: var(--space-xs); flex-wrap: wrap; } .diag__wire { display: none; } .footer__close { font-size: var(--text-section); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="container">
+  <nav class="nav" aria-label="zone 404">
+    <a class="nav__brand" href="/">zone 404</a>
+    <div class="nav__links">
+      <a href="https://github.com/chicotomerveille-bot/murmure">Le code</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <h1 id="hero-title">tout ce que tu dis <span class="verb">reste</span> ici.</h1>
+        <p class="lead">zone 404 écrit ta voix dans l’appli où tu parles, sans serveur.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://github.com/chicotomerveille-bot/murmure/releases">Télécharger pour windows</a>
+          <a class="btn btn--quiet" href="https://github.com/chicotomerveille-bot/murmure/releases">Pour linux et macos</a>
+        </div>
+      </div>
+
+      <figure class="console" data-slot="console-hero" data-kind="product" data-alt="Capture réelle de la console de dictée de zone 404, en pleine écoute" aria-label="Exemple de la console de dictée">
+        <div class="console__head">
+          <span class="console__title">dictée</span>
+          <span class="chip" role="status">en écoute</span>
+        </div>
+        <div class="console__text" id="typed"><p>compte rendu, lundi quatorze heures. le tarif passe à dix-sept euros, la livraison à vendredi, et marie prend le relais sur le dossier arcades.</p><p>dix-sept euros, pas dix-sept centimes. tu relis là, et je repars en écoute.</p></div>
+        <div class="console__foot">
+          <div><span class="readout">langue <b>français</b></span></div>
+          <div><span class="readout">modèle <b>parakeet-tdt-0.6b-v3</b></span></div>
+          <div><span class="readout">réseau <b>0 octet envoyé</b></span></div>
+        </div>
+        <figcaption class="visually-hidden">Exemple de dictée traitée localement, sans connexion.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec sec--tight container" aria-labelledby="travail-titre">
+    <div class="headblock">
+      <h2 id="travail-titre">parle où tu travailles.</h2>
+      <p class="lead">tu relâches l’appui, la phrase s’écrit au curseur.</p>
+    </div>
+
+    <div class="switch" data-switch>
+      <div class="seg" role="tablist" aria-label="Où la dictée choisit d'atterrir">
+        <button role="tab" aria-selected="true" aria-controls="pan-editeur" id="tab-1">l’éditeur</button>
+        <button role="tab" aria-selected="false" aria-controls="pan-mail" id="tab-2" tabindex="-1">le mail</button>
+        <button role="tab" aria-selected="false" aria-controls="pan-note" id="tab-3" tabindex="-1">la note</button>
+      </div>
+      <section role="tabpanel" id="pan-editeur" aria-labelledby="tab-1" class="surface surface--code">
+        <span class="surface__caption">tarifs.ts, le fichier ouvert</span>
+        <ol>
+          <li>const tarif = 17 ;</li>
+          <li>const livraison = “vendredi” ;</li>
+          <li>// marie prend le relais sur le dossier arcades</li>
+          <li>const relance = demain matin ;</li>
+          <li>const dossier = “arcades” ;</li>
+          <li><span class="cmt">// l’envoi part à claire@example.com</span></li>
+          <li><span class="cmt">// et rien n’a quitté l’ordinateur</span></li>
+        </ol>
+      </section>
+      <section role="tabpanel" id="pan-mail" aria-labelledby="tab-2" class="surface surface--mail" hidden>
+        <span class="surface__caption">mail, le brouillon écrit</span>
+        <dl>
+          <dt>à</dt><dd>claire@example.com</dd>
+          <dt>objet</dt><dd>compte rendu de lundi</dd>
+          <dt>corps</dt><dd>le tarif passe à dix-sept euros, la livraison à vendredi, marie prend le relais sur le dossier arcades.</dd>
+        </dl>
+      </section>
+      <section role="tabpanel" id="pan-note" aria-labelledby="tab-3" class="surface surface--note" hidden>
+        <span class="surface__caption">note, la liste posée</span>
+        <ul>
+          <li>tarif : dix-sept euros, pas dix-sept centimes</li>
+          <li>livraison déplacée à vendredi</li>
+          <li>marie prend le relais sur le dossier arcades</li>
+          <li>relance du client jeudi matin</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="sec--loose sec container" aria-labelledby="chemin-titre">
+    <div class="headblock">
+      <h2 id="chemin-titre">le chemin le plus court.</h2>
+      <p class="lead">pas d’escale, phrase finie.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile--lead tile--big blueprint" style="grid-column: span 8;">
+        <h3>l’aller-retour contre l’aller simple.</h3>
+        <div class="diag" aria-label="le chemin habituel contre le chemin de zone 404">
+          <div>
+            <span class="diag__pathname">le chemin habituel</span>
+            <div class="diag__path">
+              <span class="diag__node diag__node--muted">ta voix</span><span class="diag__wire"></span><span class="diag__node diag__node--muted">wifi</span><span class="diag__wire"></span><span class="diag__node diag__node--muted">serveur distant</span><span class="diag__wire"></span><span class="diag__node diag__node--muted">file d’attente</span><span class="diag__wire"></span><span class="diag__node diag__node--muted">texte</span>
+            </div>
+          </div>
+          <div>
+            <span class="diag__pathname">zone 404</span>
+            <div class="diag__path">
+              <span class="diag__node diag__node--fast">ta voix</span><span class="diag__wire diag__wire--fast"></span><span class="diag__node diag__node--fast">parakeet, sur ta machine</span><span class="diag__wire diag__wire--fast"></span><span class="diag__node diag__node--fast">texte</span>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted);">cinq étapes contre deux.</p>
+      </div>
+
+      <div class="tile" style="grid-column: span 4;">
+        <h3>le code, sous agpl-3.0.</h3>
+        <p>la licence empêche la surprise, pas l’étude ; le dépôt est public.</p>
+      </div>
+
+      <div class="tile" style="grid-column: span 5;">
+        <span class="tile__count">vingt-cinq</span>
+        <span class="readout">langues</span>
+      </div>
+
+      <div class="tile tile--big" style="grid-column: span 7;">
+        <h3>un mot le réveille.</h3>
+        <p>sans appui : un mot, puis tu parles, il note.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec container" aria-labelledby="machine-titre">
+    <div class="headblock">
+      <h2 id="machine-titre">sur ta machine.</h2>
+      <p class="lead">un installateur par plateforme, le moteur dans l’appli.</p>
+    </div>
+
+    <table class="plat">
+      <thead><tr><th scope="col">plateforme</th><th scope="col">ce qui s’installe</th></tr></thead>
+      <tbody>
+        <tr><td>windows</td><td>installateur <span class="mono">.msi</span>, à partir de windows 10</td></tr>
+        <tr><td>linux</td><td>paquet <span class="mono">.deb</span>, avec le coller direct sous wayland</td></tr>
+        <tr><td>macos</td><td>archive <span class="mono">.dmg</span>, apple silicon et intel</td></tr>
+        <tr><td>moteur</td><td><span class="mono">parakeet-tdt-0.6b-v3</span> (nvidia), chargé dans l’appli</td></tr>
+        <tr><td>langues</td><td>vingt-cinq, réglables d’un clic</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<section class="band" aria-labelledby="telecharge-titre">
+  <div class="container band__row">
+    <h2 id="telecharge-titre" style="margin-right: var(--space-lg);">quand tu veux.</h2>
+    <a class="btn btn--quiet" href="https://github.com/chicotomerveille-bot/murmure/releases">Télécharger pour windows</a>
+    <a class="btn btn--quiet" href="https://github.com/chicotomerveille-bot/murmure/releases">Pour linux</a>
+    <a class="btn btn--quiet" href="https://github.com/chicotomerveille-bot/murmure/releases">Pour macos</a>
+  </div>
+</section>
+
+<footer class="footer container">
+  <p class="footer__close">ta voix, ta machine, rien de plus.</p>
+  <div class="footer__links">
+    <a href="https://github.com/chicotomerveille-bot/murmure">Le dépôt</a>
+    <a href="https://github.com/chicotomerveille-bot/murmure/releases">Les téléchargements</a>
+    <a href="https://github.com/chicotomerveille-bot/murmure/blob/main/LICENSE">La licence agpl-3.0</a>
+  </div>
+  <p class="footer__legal">projet original : murmure de kieirra, licence agpl-3.0.</p>
+</footer>
+
+<script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
+document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+<script>
+(function () {
+  const box = document.querySelector('[data-switch]');
+  if (!box) return;
+  const tabs = Array.from(box.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+  if (!document.documentElement.classList.contains('js')) return;
+  function show(i) { tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; panels[j].hidden = i !== j; }); }
+  show(0);
+  box.querySelector('.seg').addEventListener('click', (e) => { const t = e.target.closest('[role="tab"]'); if (t) show(tabs.indexOf(t)); });
+  box.querySelector('.seg').addEventListener('keydown', (e) => { const i = tabs.indexOf(document.activeElement); const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d === 0 || i < 0) return; e.preventDefault(); const n = (i + d + tabs.length) % tabs.length; show(n); tabs[n].focus(); });
+})();
+</script>
+<script>
+(function () {
+  const root = document.getElementById('typed');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && document.documentElement.classList.contains('js')) {
+    const full = Array.from(root.children).map((p) => p.textContent);
+    if (full.length === 0) return;
+    root.textContent = '';
+    let pi = 0, ci = 0, p = document.createElement('p');
+    root.appendChild(p);
+    const step = () => {
+      if (ci >= full[pi].length) { pi += 1; if (pi >= full.length) return; ci = 0; p = document.createElement('p'); root.appendChild(p); }
+      ci = Math.min(ci + 2, full[pi].length);
+      p.textContent = full[pi].slice(0, ci);
+      setTimeout(step, 14);
+    };
+    setTimeout(step, 500);
+  }
+})();
+</script>
+</body>
+</html>

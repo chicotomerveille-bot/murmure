@@ -1,0 +1,22 @@
+[
+  {
+    "shape": "Bento Grid",
+    "theme": "Lumen (deal 1/3, seed pour-zone-404-une-5650·6100f112·2026-11-08·r0)",
+    "axes": "dark/roman-serif/warm",
+    "hero": "banner",
+    "nav": "edge-aligned",
+    "footer": "statement",
+    "imagery": "product sample (built, data-slot console-hero)",
+    "photos": [],
+    "entry": "zone 404, page vitrine fr, dictée vocale locale",
+    "fingerprint": "bento+banner+switcher+bento-table+band",
+    "sections": "hero(console), switcher(apps), bento(path/agpl/langs/wake), table(platforms), band(download), footer(close)",
+    "signature": "la dictée qui s écrit dans le hero",
+    "waived": [
+      "38iii"
+    ],
+    "prompt": "Landing page pour ZONE 404, app de dictée vocale 100% locale et hors cloud, en français, vitesse et productivité, ton hacker discret",
+    "date": "2026-11-08",
+    "mode": "build"
+  }
+]
